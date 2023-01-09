@@ -183,6 +183,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CUser.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MFCappMVP.h" />
     <ClInclude Include="MFCappMVPDlg.h" />
@@ -191,6 +192,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CUser.cpp" />
     <ClCompile Include="MFCappMVP.cpp" />
     <ClCompile Include="MFCappMVPDlg.cpp" />
     <ClCompile Include="pch.cpp">
