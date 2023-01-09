@@ -13,21 +13,33 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Файлы заголовков\UsersManagmentDlg">
+    <Filter Include="Файлы заголовков\UsersManagment">
       <UniqueIdentifier>{e92d197a-572d-46c2-8202-adca437d09d7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\UsersManagmentDlg\Model">
+    <Filter Include="Файлы заголовков\UsersManagment\data">
       <UniqueIdentifier>{1539e08f-d480-416a-bba1-ab544c5fa818}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\Model">
+    <Filter Include="Файлы заголовков\UsersManagment\domain">
+      <UniqueIdentifier>{9860f740-210f-4a74-8749-9cbcb41a5ce4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\UsersManagment\presentation">
+      <UniqueIdentifier>{d3548fa8-a02f-495e-8735-dded1842233d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\UsersManagment">
+      <UniqueIdentifier>{429ac518-9edb-44d5-b5de-43a4c20a0838}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\UsersManagment\data">
       <UniqueIdentifier>{5b0e1b71-c06b-45e8-b24c-2c009b650c6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\UsersManagment\presentation">
+      <UniqueIdentifier>{a8b80f78-cb39-4ae3-88c0-74e185b5cec1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\UsersManagment\domain">
+      <UniqueIdentifier>{00976dd4-1040-4672-bad8-ea539167d081}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MFCappMVP.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
-    <ClInclude Include="MFCappMVPDlg.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="framework.h">
@@ -43,21 +55,42 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="CUser.h">
-      <Filter>Файлы заголовков\UsersManagmentDlg\Model</Filter>
+      <Filter>Файлы заголовков\UsersManagment\data</Filter>
+    </ClInclude>
+    <ClInclude Include="UserManagmentPresenter.h">
+      <Filter>Файлы заголовков\UsersManagment\presentation</Filter>
+    </ClInclude>
+    <ClInclude Include="UserManagmentDlg.h">
+      <Filter>Файлы заголовков\UsersManagment\presentation</Filter>
+    </ClInclude>
+    <ClInclude Include="IUserFormView.h">
+      <Filter>Файлы заголовков\UsersManagment\presentation</Filter>
+    </ClInclude>
+    <ClInclude Include="IUserFormRepository.h">
+      <Filter>Файлы заголовков\UsersManagment\domain</Filter>
+    </ClInclude>
+    <ClInclude Include="CMemoryRepository.h">
+      <Filter>Файлы заголовков\UsersManagment\domain</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MFCappMVP.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="MFCappMVPDlg.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="CUser.cpp">
-      <Filter>Исходные файлы\Model</Filter>
+      <Filter>Исходные файлы\UsersManagment\data</Filter>
+    </ClCompile>
+    <ClCompile Include="UserManagmentDlg.cpp">
+      <Filter>Исходные файлы\UsersManagment\presentation</Filter>
+    </ClCompile>
+    <ClCompile Include="UserManagmentPresenter.cpp">
+      <Filter>Исходные файлы\UsersManagment\presentation</Filter>
+    </ClCompile>
+    <ClCompile Include="CMemoryRepository.cpp">
+      <Filter>Исходные файлы\UsersManagment\domain</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

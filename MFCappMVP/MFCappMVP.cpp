@@ -5,7 +5,11 @@
 #include "pch.h"
 #include "framework.h"
 #include "MFCappMVP.h"
-#include "MFCappMVPDlg.h"
+#include "UserManagmentDlg.h"
+
+#include "IUserFormView.h"
+#include "CMemoryRepository.h"
+#include "UserManagmentPresenter.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -71,7 +75,13 @@ BOOL CMFCappMVPApp::InitInstance()
 	// например на название организации
 	SetRegistryKey(_T("Локальные приложения, созданные с помощью мастера приложений"));
 
-	CMFCappMVPDlg dlg;
+	CMemoryRepository m_UserFormRepository;
+	UserManagmentDlg dlg;
+	UserManagmentPresenter m_UserFormPresenter;
+
+	m_UserFormPresenter.SetIUserForm(&dlg);
+	m_UserFormPresenter.SetIUserFormRepository(&m_UserFormRepository);
+
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)

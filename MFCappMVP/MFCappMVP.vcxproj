@@ -183,18 +183,24 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CMemoryRepository.h" />
     <ClInclude Include="CUser.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="IUserFormRepository.h" />
+    <ClInclude Include="IUserFormView.h" />
     <ClInclude Include="MFCappMVP.h" />
-    <ClInclude Include="MFCappMVPDlg.h" />
+    <ClInclude Include="UserManagmentDlg.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="UserManagmentPresenter.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CMemoryRepository.cpp" />
     <ClCompile Include="CUser.cpp" />
     <ClCompile Include="MFCappMVP.cpp" />
-    <ClCompile Include="MFCappMVPDlg.cpp" />
+    <ClCompile Include="UserManagmentPresenter.cpp" />
+    <ClCompile Include="UserManagmentDlg.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
