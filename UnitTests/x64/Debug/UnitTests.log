@@ -1,0 +1,3 @@
+﻿  PersonListTest.cpp
+gtestd.lib(gtest-all.obj) : warning LNK4099: "gtest.pdb" PDB не найден с "gtestd.lib(gtest-all.obj)" или на "C:\Users\aklad\Desktop\MFCappMVP-main\x64\Debug\gtest.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
+  UnitTests.vcxproj -> C:\Users\aklad\Desktop\MFCappMVP-main\x64\Debug\UnitTests.exe
