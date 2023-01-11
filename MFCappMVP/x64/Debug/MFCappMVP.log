@@ -1,8 +1,0 @@
-﻿  pch.cpp
-  Person.cpp
-  PersonListDlg.cpp
-  PersonListPresenterImpl.cpp
-  PersonListRepositoryImpl.cpp
-  MFCappMVP.cpp
-  Создание кода...
-  MFCappMVP.vcxproj -> C:\Users\aklad\Desktop\MFCappMVP-main\x64\Debug\MFCappMVP.exe
