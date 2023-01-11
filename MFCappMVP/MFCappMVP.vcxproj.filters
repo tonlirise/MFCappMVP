@@ -13,29 +13,29 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Файлы заголовков\UsersManagment">
-      <UniqueIdentifier>{e92d197a-572d-46c2-8202-adca437d09d7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\UsersManagment\data">
-      <UniqueIdentifier>{1539e08f-d480-416a-bba1-ab544c5fa818}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\UsersManagment\domain">
-      <UniqueIdentifier>{9860f740-210f-4a74-8749-9cbcb41a5ce4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\UsersManagment\presentation">
-      <UniqueIdentifier>{d3548fa8-a02f-495e-8735-dded1842233d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\UsersManagment">
+    <Filter Include="Исходные файлы\PersonListDlg">
       <UniqueIdentifier>{429ac518-9edb-44d5-b5de-43a4c20a0838}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\UsersManagment\data">
+    <Filter Include="Исходные файлы\PersonListDlg\model">
       <UniqueIdentifier>{5b0e1b71-c06b-45e8-b24c-2c009b650c6a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\UsersManagment\presentation">
-      <UniqueIdentifier>{a8b80f78-cb39-4ae3-88c0-74e185b5cec1}</UniqueIdentifier>
+    <Filter Include="Файлы заголовков\PersonListDlg">
+      <UniqueIdentifier>{e92d197a-572d-46c2-8202-adca437d09d7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\UsersManagment\domain">
+    <Filter Include="Файлы заголовков\PersonListDlg\model">
+      <UniqueIdentifier>{1539e08f-d480-416a-bba1-ab544c5fa818}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\PersonListDlg\presenter">
       <UniqueIdentifier>{00976dd4-1040-4672-bad8-ea539167d081}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\PersonListDlg\presenter">
+      <UniqueIdentifier>{9860f740-210f-4a74-8749-9cbcb41a5ce4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\PersonListDlg\view">
+      <UniqueIdentifier>{d3548fa8-a02f-495e-8735-dded1842233d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\PersonListDlg\view">
+      <UniqueIdentifier>{a8b80f78-cb39-4ae3-88c0-74e185b5cec1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -54,23 +54,26 @@
     <ClInclude Include="pch.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="CUser.h">
-      <Filter>Файлы заголовков\UsersManagment\data</Filter>
+    <ClInclude Include="CPerson.h">
+      <Filter>Файлы заголовков\PersonListDlg\model</Filter>
     </ClInclude>
-    <ClInclude Include="UserManagmentPresenter.h">
-      <Filter>Файлы заголовков\UsersManagment\presentation</Filter>
+    <ClInclude Include="CPersonListRepository.h">
+      <Filter>Файлы заголовков\PersonListDlg\model</Filter>
     </ClInclude>
-    <ClInclude Include="UserManagmentDlg.h">
-      <Filter>Файлы заголовков\UsersManagment\presentation</Filter>
+    <ClInclude Include="CPersonListRepositoryImpl.h">
+      <Filter>Файлы заголовков\PersonListDlg\model</Filter>
     </ClInclude>
-    <ClInclude Include="IUserFormView.h">
-      <Filter>Файлы заголовков\UsersManagment\presentation</Filter>
+    <ClInclude Include="CPersonListPresenter.h">
+      <Filter>Файлы заголовков\PersonListDlg\presenter</Filter>
     </ClInclude>
-    <ClInclude Include="IUserFormRepository.h">
-      <Filter>Файлы заголовков\UsersManagment\domain</Filter>
+    <ClInclude Include="CPersonListPresenterImpl.h">
+      <Filter>Файлы заголовков\PersonListDlg\presenter</Filter>
     </ClInclude>
-    <ClInclude Include="CMemoryRepository.h">
-      <Filter>Файлы заголовков\UsersManagment\domain</Filter>
+    <ClInclude Include="CPersonListView.h">
+      <Filter>Файлы заголовков\PersonListDlg\view</Filter>
+    </ClInclude>
+    <ClInclude Include="CPersonListDlg.h">
+      <Filter>Файлы заголовков\PersonListDlg\view</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -80,17 +83,17 @@
     <ClCompile Include="pch.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="CUser.cpp">
-      <Filter>Исходные файлы\UsersManagment\data</Filter>
+    <ClCompile Include="CPerson.cpp">
+      <Filter>Исходные файлы\PersonListDlg\model</Filter>
     </ClCompile>
-    <ClCompile Include="UserManagmentDlg.cpp">
-      <Filter>Исходные файлы\UsersManagment\presentation</Filter>
+    <ClCompile Include="CPersonListRepositoryImpl.cpp">
+      <Filter>Исходные файлы\PersonListDlg\model</Filter>
     </ClCompile>
-    <ClCompile Include="UserManagmentPresenter.cpp">
-      <Filter>Исходные файлы\UsersManagment\presentation</Filter>
+    <ClCompile Include="CPersonListPresenterImpl.cpp">
+      <Filter>Исходные файлы\PersonListDlg\presenter</Filter>
     </ClCompile>
-    <ClCompile Include="CMemoryRepository.cpp">
-      <Filter>Исходные файлы\UsersManagment\domain</Filter>
+    <ClCompile Include="CPersonListDlg.cpp">
+      <Filter>Исходные файлы\PersonListDlg\view</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

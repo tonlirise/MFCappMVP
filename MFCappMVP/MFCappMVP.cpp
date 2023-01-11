@@ -5,11 +5,10 @@
 #include "pch.h"
 #include "framework.h"
 #include "MFCappMVP.h"
-#include "UserManagmentDlg.h"
 
-#include "IUserFormView.h"
-#include "CMemoryRepository.h"
-#include "UserManagmentPresenter.h"
+#include "CPersonListRepositoryImpl.h"
+#include "CPersonListPresenterImpl.h"
+#include "CPersonListDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -75,15 +74,12 @@ BOOL CMFCappMVPApp::InitInstance()
 	// например на название организации
 	SetRegistryKey(_T("Локальные приложения, созданные с помощью мастера приложений"));
 
-	CMemoryRepository m_UserFormRepository;
-	UserManagmentDlg dlg;
-	UserManagmentPresenter m_UserFormPresenter;
-
-	m_UserFormPresenter.SetIUserForm(&dlg);
-	m_UserFormPresenter.SetIUserFormRepository(&m_UserFormRepository);
-
-	m_pMainWnd = &dlg;
-	INT_PTR nResponse = dlg.DoModal();
+	CPersonListDlg dlgPersonList;
+	CPersonListRepositoryImpl m_PersonListRepository;
+	CPersonListPresenterImpl m_PersonListPresenter = CPersonListPresenterImpl(&dlgPersonList, &m_PersonListRepository);
+	
+	m_pMainWnd = &dlgPersonList;
+	INT_PTR nResponse = dlgPersonList.DoModal();
 	if (nResponse == IDOK)
 	{
 		// TODO: Введите код для обработки закрытия диалогового окна
