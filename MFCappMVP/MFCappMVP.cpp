@@ -6,9 +6,9 @@
 #include "framework.h"
 #include "MFCappMVP.h"
 
-#include "CPersonListRepositoryImpl.h"
-#include "CPersonListPresenterImpl.h"
-#include "CPersonListDlg.h"
+#include "PersonListRepositoryImpl.h"
+#include "PersonListPresenterImpl.h"
+#include "PersonListDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

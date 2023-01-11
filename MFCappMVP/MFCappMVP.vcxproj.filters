@@ -54,25 +54,25 @@
     <ClInclude Include="pch.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="CPerson.h">
+    <ClInclude Include="Person.h">
       <Filter>Файлы заголовков\PersonListDlg\model</Filter>
     </ClInclude>
-    <ClInclude Include="CPersonListRepository.h">
+    <ClInclude Include="PersonListRepository.h">
       <Filter>Файлы заголовков\PersonListDlg\model</Filter>
     </ClInclude>
-    <ClInclude Include="CPersonListRepositoryImpl.h">
+    <ClInclude Include="PersonListRepositoryImpl.h">
       <Filter>Файлы заголовков\PersonListDlg\model</Filter>
     </ClInclude>
-    <ClInclude Include="CPersonListPresenter.h">
+    <ClInclude Include="PersonListPresenter.h">
       <Filter>Файлы заголовков\PersonListDlg\presenter</Filter>
     </ClInclude>
-    <ClInclude Include="CPersonListPresenterImpl.h">
+    <ClInclude Include="PersonListPresenterImpl.h">
       <Filter>Файлы заголовков\PersonListDlg\presenter</Filter>
     </ClInclude>
-    <ClInclude Include="CPersonListView.h">
+    <ClInclude Include="PersonListView.h">
       <Filter>Файлы заголовков\PersonListDlg\view</Filter>
     </ClInclude>
-    <ClInclude Include="CPersonListDlg.h">
+    <ClInclude Include="PersonListDlg.h">
       <Filter>Файлы заголовков\PersonListDlg\view</Filter>
     </ClInclude>
   </ItemGroup>
@@ -83,16 +83,16 @@
     <ClCompile Include="pch.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="CPerson.cpp">
+    <ClCompile Include="Person.cpp">
       <Filter>Исходные файлы\PersonListDlg\model</Filter>
     </ClCompile>
-    <ClCompile Include="CPersonListRepositoryImpl.cpp">
+    <ClCompile Include="PersonListRepositoryImpl.cpp">
       <Filter>Исходные файлы\PersonListDlg\model</Filter>
     </ClCompile>
-    <ClCompile Include="CPersonListPresenterImpl.cpp">
+    <ClCompile Include="PersonListPresenterImpl.cpp">
       <Filter>Исходные файлы\PersonListDlg\presenter</Filter>
     </ClCompile>
-    <ClCompile Include="CPersonListDlg.cpp">
+    <ClCompile Include="PersonListDlg.cpp">
       <Filter>Исходные файлы\PersonListDlg\view</Filter>
     </ClCompile>
   </ItemGroup>

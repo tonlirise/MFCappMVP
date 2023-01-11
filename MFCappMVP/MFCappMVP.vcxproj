@@ -183,24 +183,24 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="CPerson.h" />
-    <ClInclude Include="CPersonListDlg.h" />
-    <ClInclude Include="CPersonListPresenterImpl.h" />
-    <ClInclude Include="CPersonListRepositoryImpl.h" />
-    <ClInclude Include="CPersonListRepository.h" />
-    <ClInclude Include="CPersonListView.h" />
+    <ClInclude Include="Person.h" />
+    <ClInclude Include="PersonListDlg.h" />
+    <ClInclude Include="PersonListPresenterImpl.h" />
+    <ClInclude Include="PersonListRepositoryImpl.h" />
+    <ClInclude Include="PersonListRepository.h" />
+    <ClInclude Include="PersonListView.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MFCappMVP.h" />
-    <ClInclude Include="CPersonListPresenter.h" />
+    <ClInclude Include="PersonListPresenter.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CPerson.cpp" />
-    <ClCompile Include="CPersonListDlg.cpp" />
-    <ClCompile Include="CPersonListPresenterImpl.cpp" />
-    <ClCompile Include="CPersonListRepositoryImpl.cpp" />
+    <ClCompile Include="Person.cpp" />
+    <ClCompile Include="PersonListDlg.cpp" />
+    <ClCompile Include="PersonListPresenterImpl.cpp" />
+    <ClCompile Include="PersonListRepositoryImpl.cpp" />
     <ClCompile Include="MFCappMVP.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
