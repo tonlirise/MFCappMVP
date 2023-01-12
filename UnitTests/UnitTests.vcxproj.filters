@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\PersonList">
+      <UniqueIdentifier>{99cb034d-6ab1-4670-aef7-673d6f87c7f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -20,6 +23,15 @@
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MFCappMVP\PersonListPresenterImpl.h">
+      <Filter>Source Files\PersonList</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MFCappMVP\PersonListRepository.h">
+      <Filter>Source Files\PersonList</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MFCappMVP\PersonListView.h">
+      <Filter>Source Files\PersonList</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -31,6 +43,9 @@
     </ClCompile>
     <ClCompile Include="PersonListTest.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MFCappMVP\PersonListRepositoryImpl.cpp">
+      <Filter>Source Files\PersonList</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
