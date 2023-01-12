@@ -164,6 +164,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\MFCappMVP\Person.h" />
     <ClInclude Include="..\MFCappMVP\PersonListPresenterImpl.h" />
     <ClInclude Include="..\MFCappMVP\PersonListRepository.h" />
     <ClInclude Include="..\MFCappMVP\PersonListView.h" />
@@ -171,7 +172,8 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\MFCappMVP\PersonListRepositoryImpl.cpp" />
+    <ClCompile Include="..\MFCappMVP\Person.cpp" />
+    <ClCompile Include="..\MFCappMVP\PersonListPresenterImpl.cpp" />
     <ClCompile Include="PersonListTest.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

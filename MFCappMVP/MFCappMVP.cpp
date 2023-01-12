@@ -2,7 +2,7 @@
 // MFCappMVP.cpp: определяет поведение классов для приложения.
 //
 
-#include "pch.h"
+#include "stdafx.h"
 #include "framework.h"
 #include "MFCappMVP.h"
 

@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "stdafx.h"
 
 #include "PersonListPresenterImpl.h"
 
@@ -15,9 +15,11 @@ CPersonListPresenterImpl::~CPersonListPresenterImpl() {}
 
 void CPersonListPresenterImpl::UpdateUser()
 {
-	CPerson user = m_IPersonListRepository->FindbyName(m_IPersonListView->GetName());
+	std::string sName = m_IPersonListView->GetName();
 
-	user.SetName(m_IPersonListView->GetName());
+	CPerson user = m_IPersonListRepository->FindbyName(sName);
+
+	user.SetName(sName);
 	user.SetAge(m_IPersonListView->GetAge());
 	user.SetAddress(m_IPersonListView->GetAddress());
 

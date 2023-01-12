@@ -33,6 +33,9 @@
     <ClInclude Include="..\MFCappMVP\PersonListView.h">
       <Filter>Source Files\PersonList</Filter>
     </ClInclude>
+    <ClInclude Include="..\MFCappMVP\Person.h">
+      <Filter>Source Files\PersonList</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -44,7 +47,10 @@
     <ClCompile Include="PersonListTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\MFCappMVP\PersonListRepositoryImpl.cpp">
+    <ClCompile Include="..\MFCappMVP\PersonListPresenterImpl.cpp">
+      <Filter>Source Files\PersonList</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MFCappMVP\Person.cpp">
       <Filter>Source Files\PersonList</Filter>
     </ClCompile>
   </ItemGroup>

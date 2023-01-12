@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "stdafx.h"
 #include "framework.h"
 #include "MFCappMVP.h"
 #include "afxdialogex.h"
