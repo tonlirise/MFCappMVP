@@ -54,19 +54,19 @@
     <ClInclude Include="Person.h">
       <Filter>Файлы заголовков\PersonListDlg\model</Filter>
     </ClInclude>
-    <ClInclude Include="PersonListRepository.h">
+    <ClInclude Include="IPersonListRepository.h">
       <Filter>Файлы заголовков\PersonListDlg\model</Filter>
     </ClInclude>
     <ClInclude Include="PersonListRepositoryImpl.h">
       <Filter>Файлы заголовков\PersonListDlg\model</Filter>
     </ClInclude>
-    <ClInclude Include="PersonListPresenter.h">
+    <ClInclude Include="IPersonListPresenter.h">
       <Filter>Файлы заголовков\PersonListDlg\presenter</Filter>
     </ClInclude>
     <ClInclude Include="PersonListPresenterImpl.h">
       <Filter>Файлы заголовков\PersonListDlg\presenter</Filter>
     </ClInclude>
-    <ClInclude Include="PersonListView.h">
+    <ClInclude Include="IPersonListView.h">
       <Filter>Файлы заголовков\PersonListDlg\view</Filter>
     </ClInclude>
     <ClInclude Include="PersonListDlg.h">

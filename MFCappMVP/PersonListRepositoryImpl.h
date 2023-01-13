@@ -1,10 +1,10 @@
 #pragma once
 #include "Person.h"
-#include "PersonListRepository.h"
+#include "IPersonListRepository.h"
 
 #include <map>
 
-class CPersonListRepositoryImpl : public CPersonListRepository
+class CPersonListRepositoryImpl : public IPersonListRepository
 {
 public:
 

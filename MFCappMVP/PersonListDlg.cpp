@@ -34,7 +34,7 @@ BEGIN_MESSAGE_MAP(CPersonListDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON_SAVE, &CPersonListDlg::OnBnClickedButtonSave)
 END_MESSAGE_MAP()
 
-void CPersonListDlg::SetPresenter(CPersonListPresenter* presenter)
+void CPersonListDlg::SetPresenter(IPersonListPresenter* presenter)
 {
 	m_PersonListPresenter = presenter;
 }
@@ -113,12 +113,10 @@ long CPersonListDlg::getSelectedUserID()
 	return value;
 }
 
-
 void CPersonListDlg::OnBnClickedButtonUpdate()
 {
 	m_PersonListPresenter->UpdateUser();
 }
-
 
 void CPersonListDlg::OnBnClickedButtonSave()
 {

@@ -167,7 +167,7 @@
     <ClInclude Include="..\MFCappMVP\Person.h" />
     <ClInclude Include="..\MFCappMVP\PersonListPresenterImpl.h" />
     <ClInclude Include="..\MFCappMVP\PersonListRepository.h" />
-    <ClInclude Include="..\MFCappMVP\PersonListView.h" />
+    <ClInclude Include="..\MFCappMVP\IPersonListView.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>

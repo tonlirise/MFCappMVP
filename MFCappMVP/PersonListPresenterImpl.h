@@ -1,18 +1,22 @@
 #pragma once
-#include "PersonListView.h"
-#include "PersonListRepository.h"
+#include "IPersonListView.h"
+#include "IPersonListRepository.h"
 
 
-class CPersonListPresenterImpl : public CPersonListPresenter
+class CPersonListPresenterImpl : public IPersonListPresenter
 {
 private:
-	CPersonListView* m_IPersonListView {nullptr};
-	CPersonListRepository* m_IPersonListRepository {nullptr};
+	IPersonListView* m_IPersonListView {nullptr};
+	IPersonListRepository* m_IPersonListRepository {nullptr};
 
 	bool ValidateDuplicationUser(CPerson user);
 
 public:
-	CPersonListPresenterImpl(CPersonListView* i_IPersonListView, CPersonListRepository* i_IPersonListRepository);
+	CPersonListPresenterImpl(
+		IPersonListView* i_IPersonListView, 
+		IPersonListRepository* i_IPersonListRepository
+	);
+
 	~CPersonListPresenterImpl();
 
 	void UpdateUserListView();

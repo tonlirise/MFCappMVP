@@ -2,7 +2,7 @@
 
 #include "PersonListPresenterImpl.h"
 
-CPersonListPresenterImpl::CPersonListPresenterImpl(CPersonListView* i_IPersonListView, CPersonListRepository* i_IPersonListRepository)
+CPersonListPresenterImpl::CPersonListPresenterImpl(IPersonListView* i_IPersonListView, IPersonListRepository* i_IPersonListRepository)
 {
 	m_IPersonListView = i_IPersonListView;
 	m_IPersonListView->SetPresenter(this);

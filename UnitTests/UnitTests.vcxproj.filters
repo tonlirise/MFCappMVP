@@ -30,7 +30,7 @@
     <ClInclude Include="..\MFCappMVP\PersonListRepository.h">
       <Filter>Source Files\PersonList</Filter>
     </ClInclude>
-    <ClInclude Include="..\MFCappMVP\PersonListView.h">
+    <ClInclude Include="..\MFCappMVP\IPersonListView.h">
       <Filter>Source Files\PersonList</Filter>
     </ClInclude>
     <ClInclude Include="..\MFCappMVP\Person.h">

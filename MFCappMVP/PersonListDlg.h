@@ -1,17 +1,15 @@
 #pragma once
 #include "MFCappMVP.h"
-#include "PersonListView.h"
-#include "PersonListPresenter.h"
+#include "IPersonListView.h"
+#include "IPersonListPresenter.h"
 
 #include "Person.h"
 
-class CPersonListDlg : public CDialogEx, public CPersonListView
+class CPersonListDlg : public CDialogEx, public IPersonListView
 {
-	CPersonListPresenter* m_PersonListPresenter {nullptr};
-
+	IPersonListPresenter* m_PersonListPresenter {nullptr};
 public:
 	CPersonListDlg(CWnd* pParent = nullptr);
-
 	enum { IDD = IDD_DIALOG_PERSON_LIST };
 
 protected:
@@ -22,7 +20,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 public:
-	virtual void SetPresenter(CPersonListPresenter* presenter) override;
+	virtual void SetPresenter(IPersonListPresenter* presenter) override;
 
 	CListBox m_UserListBox;
 	CEdit m_NameEditBox;

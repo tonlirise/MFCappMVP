@@ -5,7 +5,7 @@
 
 namespace Middle
 {
-	class CPersonListViewTestImpl : public CPersonListView
+	class CPersonListViewTestImpl : public IPersonListView
 	{
 	public:
 		int m_nCountSetUserListBox{ 0 };
@@ -32,12 +32,12 @@ namespace Middle
 		void SetAddress(std::string value) {};
 		std::string GetAddress() { m_nCountNumGetAddress++; return m_sTestAddress; };
 
-		void SetPresenter(CPersonListPresenter* presenter) {};
+		void SetPresenter(IPersonListPresenter* presenter) {};
 
 	};
 
 
-	class CPersonListRepositoryTestIml : public CPersonListRepository
+	class CPersonListRepositoryTestIml : public IPersonListRepository
 	{
 	public:
 		int m_nCountSaveUser{ 0 };
