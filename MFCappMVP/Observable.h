@@ -6,7 +6,7 @@ template <typename T>
 class IUpdateObserver
 {
 public:
-	virtual void UpdateObserver(IObserver<T>* observer) = 0;
+	virtual void UpdateObserver(IObserver<T>* pObserver) = 0;
 };
 
 template <typename T>
@@ -15,18 +15,18 @@ class IObservable : public IUpdate<T>, public IUpdateObserver<T> {};
 template <typename T>
 class CUiObservable : public IObservable<T>
 {
-	IObserver<T>* observer {nullptr};
+	IObserver<T>* m_pObserver {nullptr};
 public:
 	CUiObservable() = default;
 	~CUiObservable() = default;
 
-	virtual void UpdateObserver(IObserver<T>* observer) override
+	virtual void UpdateObserver(IObserver<T>* pObserver) override
 	{
-		this->observer = observer;
+		m_pObserver = pObserver;
 	}
 
-	virtual void Update(T* value)
+	virtual void Update(T* pValue)
 	{
-		if(observer && value) observer->Update(value);
+		if(m_pObserver && pValue) m_pObserver->Update(pValue);
 	}
 };

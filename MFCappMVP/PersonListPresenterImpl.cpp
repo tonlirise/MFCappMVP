@@ -2,15 +2,28 @@
 
 #include "PersonListPresenterImpl.h"
 
-CPersonListPresenterImpl::CPersonListPresenterImpl(IPersonListView* i_IPersonListView, IPersonListRepository* i_IPersonListRepository)
+CPersonListPresenterImpl::CPersonListPresenterImpl(IPersonListRepository* i_IPersonListRepository)
 {
-	m_IPersonListView = i_IPersonListView;
-	m_IPersonListView->SetPresenter(this);
-
 	m_IPersonListRepository = i_IPersonListRepository;
+
+	m_pObsName = new CUiObservable<std::string>();
+	m_pObsAge = new CUiObservable<int>();
+	m_pObsAddress = new CUiObservable<std::string>();
+	m_pObsUserList = new CUiObservable<std::map<long, CPerson>>();
 }
 
 CPersonListPresenterImpl::~CPersonListPresenterImpl() {}
+
+void CPersonListPresenterImpl::UpdateObservers(IObserver<std::string>* obsName,
+	IObserver<int>* obsAge,
+	IObserver<std::string>* obsAddress,
+	IObserver<std::map<long, CPerson>>* obsUserList) 
+{
+	m_pObsName->UpdateObserver(obsName);
+	m_pObsAge->UpdateObserver(obsAge);
+	m_pObsAddress->UpdateObserver(obsAddress);
+	m_pObsUserList->UpdateObserver(obsUserList);
+}
 
 
 void CPersonListPresenterImpl::UpdateUser()
@@ -58,9 +71,12 @@ void CPersonListPresenterImpl::SelectItem()
 	long id = m_IPersonListView->getSelectedUserID() + 1;
 	CPerson user = m_IPersonListRepository->FindbyID(id);
 
-	m_IPersonListView->SetName(user.GetName());
-	m_IPersonListView->SetAge(user.GetAge());
-	m_IPersonListView->SetAddress(user.GetAddress());
+	m_pObsName->Update(&user.GetName());
+
+	int nAge = (user.GetAge());
+	m_pObsAge->Update(&nAge);
+
+	m_pObsAddress->Update(&user.GetAddress());
 }
 
 bool CPersonListPresenterImpl::ValidateDuplicationUser(CPerson user)

@@ -4,7 +4,7 @@ template <typename T>
 class IUpdate
 {
 public:
-	virtual void Update(T* value) = 0;
+	virtual void Update(T* pValue) = 0;
 };
 
 template <typename T>

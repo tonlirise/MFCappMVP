@@ -37,6 +37,9 @@
     <Filter Include="Исходные файлы\PersonListDlg\view">
       <UniqueIdentifier>{a8b80f78-cb39-4ae3-88c0-74e185b5cec1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\MVVM">
+      <UniqueIdentifier>{1444bab7-08a8-4369-9390-5ac81212bd4f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MFCappMVP.h">
@@ -74,6 +77,12 @@
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Observable.h">
+      <Filter>Файлы заголовков\MVVM</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>Файлы заголовков\MVVM</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -183,6 +183,8 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Observable.h" />
+    <ClInclude Include="Observer.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="PersonListDlg.h" />
     <ClInclude Include="PersonListPresenterImpl.h" />

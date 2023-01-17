@@ -36,12 +36,19 @@ END_MESSAGE_MAP()
 
 void CPersonListDlg::SetPresenter(IPersonListPresenter* presenter)
 {
-	m_PersonListPresenter = presenter;
+	m_PersonListPresenter = static_cast<CPersonListPresenterImpl*>(presenter);
 }
 
 BOOL CPersonListDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
+
+	m_PersonListPresenter->UpdateObservers(new NameEditBoxObserver(this),
+		new AgeEditBoxObserver(this),
+		new AddressEditBoxObserver(this),
+		new UserListEditBoxObserver(this)
+		);
+
 
 	return TRUE;  
 }
