@@ -25,12 +25,6 @@
     <Filter Include="Файлы заголовков\PersonListDlg\model">
       <UniqueIdentifier>{1539e08f-d480-416a-bba1-ab544c5fa818}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\PersonListDlg\presenter">
-      <UniqueIdentifier>{00976dd4-1040-4672-bad8-ea539167d081}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\PersonListDlg\presenter">
-      <UniqueIdentifier>{9860f740-210f-4a74-8749-9cbcb41a5ce4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Файлы заголовков\PersonListDlg\view">
       <UniqueIdentifier>{d3548fa8-a02f-495e-8735-dded1842233d}</UniqueIdentifier>
     </Filter>
@@ -39,6 +33,12 @@
     </Filter>
     <Filter Include="Файлы заголовков\MVVM">
       <UniqueIdentifier>{1444bab7-08a8-4369-9390-5ac81212bd4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\PersonListDlg\viewmodel">
+      <UniqueIdentifier>{00976dd4-1040-4672-bad8-ea539167d081}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\PersonListDlg\viewmodel">
+      <UniqueIdentifier>{9860f740-210f-4a74-8749-9cbcb41a5ce4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -64,10 +64,10 @@
       <Filter>Файлы заголовков\PersonListDlg\model</Filter>
     </ClInclude>
     <ClInclude Include="IPersonListViewModel.h">
-      <Filter>Файлы заголовков\PersonListDlg\presenter</Filter>
+      <Filter>Файлы заголовков\PersonListDlg\viewmodel</Filter>
     </ClInclude>
     <ClInclude Include="PersonListViewModelImpl.h">
-      <Filter>Файлы заголовков\PersonListDlg\presenter</Filter>
+      <Filter>Файлы заголовков\PersonListDlg\viewmodel</Filter>
     </ClInclude>
     <ClInclude Include="IPersonListView.h">
       <Filter>Файлы заголовков\PersonListDlg\view</Filter>
@@ -96,7 +96,7 @@
       <Filter>Исходные файлы\PersonListDlg\model</Filter>
     </ClCompile>
     <ClCompile Include="PersonListViewModelImpl.cpp">
-      <Filter>Исходные файлы\PersonListDlg\presenter</Filter>
+      <Filter>Исходные файлы\PersonListDlg\viewmodel</Filter>
     </ClCompile>
     <ClCompile Include="PersonListDlg.cpp">
       <Filter>Исходные файлы\PersonListDlg\view</Filter>

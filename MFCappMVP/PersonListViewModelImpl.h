@@ -23,10 +23,10 @@ public:
 
 	~CPersonListViewModelImpl();
 
-	void UpdateObservers(IObserver<std::string>* m_obsName, 
-		IObserver<int>* m_obsAge,
-		IObserver<std::string>* m_obsAddress,
-		IObserver<std::map<long, CPerson>>* m_obsUserList
+	void UpdateObservers(std::function<void(std::string)> m_obsName,
+		std::function<void(int)> m_obsAge,
+		std::function<void(std::string)> m_obsAddress,
+		std::function<void(std::map<long, CPerson>)> m_obsUserList
 		);
 
 	virtual void UpdateUser(CPerson objPerson) override;

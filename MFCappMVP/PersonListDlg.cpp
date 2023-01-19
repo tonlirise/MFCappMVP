@@ -40,11 +40,37 @@ BOOL CPersonListDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	m_PersonListPresenter->UpdateObservers(new NameEditBoxObserver(this),
-		new AgeEditBoxObserver(this),
-		new AddressEditBoxObserver(this),
-		new UserListEditBoxObserver(this)
-		);
+	auto nameUpdater = [this](std::string sVal)
+	{
+		std::wstring wstr(sVal.begin(), sVal.end());
+		m_NameEditBox.SetWindowText(wstr.c_str());
+	};
+
+	auto ageUpdater = [this](int nVal)
+	{
+		CString str;
+		str.Format(_T("%d"), nVal);
+		m_AgeEditBox.SetWindowText(str);
+	};
+
+	auto addressUpdater = [this](std::string sVal)
+	{
+		std::wstring wstr(sVal.begin(), sVal.end());
+		m_AddressEditBox.SetWindowText(wstr.c_str());
+	};
+
+	auto userListUpdater = [this](std::map<long, CPerson> data)
+	{
+		m_UserListBox.ResetContent();
+		for each (auto i in data)
+		{
+			std::string val = i.second.GetName() + " | " + i.second.GetAddress();
+			std::wstring path_wstr(val.begin(), val.end());
+			m_UserListBox.InsertString(-1, path_wstr.c_str());
+		}
+	};
+
+	m_PersonListPresenter->UpdateObservers(nameUpdater, ageUpdater, addressUpdater, userListUpdater);
 
 	return TRUE;  
 }

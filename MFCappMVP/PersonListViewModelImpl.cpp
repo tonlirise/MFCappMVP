@@ -14,10 +14,10 @@ CPersonListViewModelImpl::CPersonListViewModelImpl(IPersonListRepository* i_IPer
 
 CPersonListViewModelImpl::~CPersonListViewModelImpl() {}
 
-void CPersonListViewModelImpl::UpdateObservers(IObserver<std::string>* obsName,
-	IObserver<int>* obsAge,
-	IObserver<std::string>* obsAddress,
-	IObserver<std::map<long, CPerson>>* obsUserList) 
+void CPersonListViewModelImpl::UpdateObservers(std::function<void(std::string)> obsName,
+	std::function<void(int)> obsAge,
+	std::function<void(std::string)> obsAddress,
+	std::function<void(std::map<long, CPerson>)> obsUserList)
 {
 	m_pObsName->UpdateObserver(obsName);
 	m_pObsAge->UpdateObserver(obsAge);
