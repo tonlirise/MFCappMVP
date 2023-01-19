@@ -1,5 +1,5 @@
 #pragma once
-#include "IPersonListView.h"
+#include "IPersonListViewModel.h"
 #include "IPersonListRepository.h"
 #include "Observable.h"
 

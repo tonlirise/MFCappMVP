@@ -69,9 +69,6 @@
     <ClInclude Include="PersonListViewModelImpl.h">
       <Filter>Файлы заголовков\PersonListDlg\viewmodel</Filter>
     </ClInclude>
-    <ClInclude Include="IPersonListView.h">
-      <Filter>Файлы заголовков\PersonListDlg\view</Filter>
-    </ClInclude>
     <ClInclude Include="PersonListDlg.h">
       <Filter>Файлы заголовков\PersonListDlg\view</Filter>
     </ClInclude>

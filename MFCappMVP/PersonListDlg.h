@@ -1,19 +1,19 @@
 #pragma once
 #include "MFCappMVP.h"
-#include "IPersonListView.h"
+#include "IPersonListViewModel.h"
 #include "PersonListViewModelImpl.h"
 #include "Observer.h"
 
 #include "Person.h"
 
-class CPersonListDlg : public CDialogEx, public IPersonListView
+class CPersonListDlg : public CDialogEx
 {
-	CPersonListViewModelImpl* m_PersonListPresenter{ nullptr };
+	CPersonListViewModelImpl* m_pPersonListViewModel{ nullptr };
 
 	CPerson GetPersonUiData();
 	long GetSelectedUserID();
 public:
-	CPersonListDlg(IPersonListViewModel* presenter, CWnd* pParent = nullptr);
+	CPersonListDlg(IPersonListViewModel* pViewModel, CWnd* pParent = nullptr);
 	enum { IDD = IDD_DIALOG_PERSON_LIST };
 
 protected:
@@ -34,9 +34,4 @@ public:
 	afx_msg void OnLbnSelchangeListAll();
 	afx_msg void OnBnClickedButtonUpdate();
 	afx_msg void OnBnClickedButtonSave();
-
-	virtual void SetUserListBox(std::map<long, CPerson> data) override;
-	virtual void SetName(std::string value) override;
-	virtual void SetAge(int value) override;
-	virtual void SetAddress(std::string value) override;
 };

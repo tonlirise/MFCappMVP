@@ -24,16 +24,22 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\MFCappMVP\PersonListPresenterImpl.h">
+    <ClInclude Include="..\MFCappMVP\IPersonListRepository.h">
       <Filter>Source Files\PersonList</Filter>
     </ClInclude>
-    <ClInclude Include="..\MFCappMVP\PersonListRepository.h">
+    <ClInclude Include="..\MFCappMVP\IPersonListViewModel.h">
       <Filter>Source Files\PersonList</Filter>
     </ClInclude>
-    <ClInclude Include="..\MFCappMVP\IPersonListView.h">
+    <ClInclude Include="..\MFCappMVP\Observable.h">
+      <Filter>Source Files\PersonList</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MFCappMVP\Observer.h">
       <Filter>Source Files\PersonList</Filter>
     </ClInclude>
     <ClInclude Include="..\MFCappMVP\Person.h">
+      <Filter>Source Files\PersonList</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MFCappMVP\PersonListViewModelImpl.h">
       <Filter>Source Files\PersonList</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,10 +53,10 @@
     <ClCompile Include="PersonListTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\MFCappMVP\PersonListPresenterImpl.cpp">
+    <ClCompile Include="..\MFCappMVP\Person.cpp">
       <Filter>Source Files\PersonList</Filter>
     </ClCompile>
-    <ClCompile Include="..\MFCappMVP\Person.cpp">
+    <ClCompile Include="..\MFCappMVP\PersonListViewModelImpl.cpp">
       <Filter>Source Files\PersonList</Filter>
     </ClCompile>
   </ItemGroup>

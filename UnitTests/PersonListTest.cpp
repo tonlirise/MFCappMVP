@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include <gtest/gtest.h>
 
-#include "..\MFCappMVP\PersonListPresenterImpl.h"
+#include "..\MFCappMVP\PersonListViewModelImpl.h"
 
 namespace Middle
 {

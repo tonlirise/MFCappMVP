@@ -11,12 +11,12 @@
 #define new DEBUG_NEW
 #endif
 
-CPersonListDlg::CPersonListDlg(IPersonListViewModel* presenter,
+CPersonListDlg::CPersonListDlg(IPersonListViewModel* pViewModel,
 	CWnd* pParent /*=nullptr*/): CDialogEx(CPersonListDlg::IDD, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 
-	m_PersonListPresenter = static_cast<CPersonListViewModelImpl*>(presenter);
+	m_pPersonListViewModel = static_cast<CPersonListViewModelImpl*>(pViewModel);
 }
 
 void CPersonListDlg::DoDataExchange(CDataExchange* pDX)
@@ -70,7 +70,7 @@ BOOL CPersonListDlg::OnInitDialog()
 		}
 	};
 
-	m_PersonListPresenter->UpdateObservers(nameUpdater, ageUpdater, addressUpdater, userListUpdater);
+	m_pPersonListViewModel->UpdateObservers(nameUpdater, ageUpdater, addressUpdater, userListUpdater);
 
 	return TRUE;  
 }
@@ -104,48 +104,17 @@ long CPersonListDlg::GetSelectedUserID()
 	return m_UserListBox.GetCurSel();
 }
 
-void CPersonListDlg::SetUserListBox(std::map<long, CPerson> data)
-{
-	m_UserListBox.ResetContent();
-	for each (auto i in data)
-	{
-		std::string val = i.second.GetName() + " | " + i.second.GetAddress();
-		std::wstring path_wstr(val.begin(), val.end());
-		m_UserListBox.InsertString(-1, path_wstr.c_str());
-		std::cout << "user id : " + i.second.GetID() << std::endl;
-	}
-}
-
-void CPersonListDlg::SetName(std::string value)
-{
-	std::wstring wstr(value.begin(), value.end());
-	m_NameEditBox.SetWindowText(wstr.c_str());
-}
-
-void CPersonListDlg::SetAge(int value)
-{
-	CString str;
-	str.Format(_T("%d"), value);
-	m_AgeEditBox.SetWindowText(str);
-}
-
-void CPersonListDlg::SetAddress(std::string value)
-{
-	std::wstring wstr(value.begin(), value.end());
-	m_AddressEditBox.SetWindowText(wstr.c_str());
-}
-
 void CPersonListDlg::OnLbnSelchangeListAll()
 {
-	m_PersonListPresenter->SelectItem(GetSelectedUserID()+1);
+	m_pPersonListViewModel->SelectItem(GetSelectedUserID()+1);
 }
 
 void CPersonListDlg::OnBnClickedButtonUpdate()
 {
-	m_PersonListPresenter->UpdateUser(GetPersonUiData());
+	m_pPersonListViewModel->UpdateUser(GetPersonUiData());
 }
 
 void CPersonListDlg::OnBnClickedButtonSave()
 {
-	m_PersonListPresenter->SaveUser(GetPersonUiData());
+	m_pPersonListViewModel->SaveUser(GetPersonUiData());
 }

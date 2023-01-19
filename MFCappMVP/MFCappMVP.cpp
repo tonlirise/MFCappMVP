@@ -75,8 +75,8 @@ BOOL CMFCappMVPApp::InitInstance()
 	SetRegistryKey(_T("Локальные приложения, созданные с помощью мастера приложений"));
 
 	CPersonListRepositoryImpl personListRepository;
-	CPersonListViewModelImpl personListPresenter = CPersonListViewModelImpl(&personListRepository);
-	CPersonListDlg dlgPersonList(&personListPresenter);
+	CPersonListViewModelImpl personListViewModel(&personListRepository);
+	CPersonListDlg dlgPersonList(&personListViewModel);
 	
 	m_pMainWnd = &dlgPersonList;
 	INT_PTR nResponse = dlgPersonList.DoModal();
