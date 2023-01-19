@@ -4,7 +4,7 @@
 #include "Observable.h"
 
 
-class CPersonListPresenterImpl : public IPersonListPresenter
+class CPersonListPresenterImpl : public IPersonListViewModel
 {
 private:
 	IPersonListRepository* m_IPersonListRepository {nullptr};
@@ -29,8 +29,8 @@ public:
 		IObserver<std::map<long, CPerson>>* m_obsUserList
 		);
 
-	virtual void UpdateUser() override;
-	virtual void SaveUser() override;
-	virtual void SelectItem() override;
+	virtual void UpdateUser(CPerson objPerson) override;
+	virtual void SaveUser(CPerson objPerson) override;
+	virtual void SelectItem(int nSelectedUserID) override;
 };
 

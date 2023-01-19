@@ -32,7 +32,7 @@ namespace Middle
 		void SetAddress(std::string value) {};
 		std::string GetAddress() { m_nCountNumGetAddress++; return m_sTestAddress; };
 
-		void SetPresenter(IPersonListPresenter* presenter) {};
+		void SetPresenter(IPersonListViewModel* presenter) {};
 
 	};
 

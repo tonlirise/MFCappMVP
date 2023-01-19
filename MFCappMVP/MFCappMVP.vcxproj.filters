@@ -63,7 +63,7 @@
     <ClInclude Include="PersonListRepositoryImpl.h">
       <Filter>Файлы заголовков\PersonListDlg\model</Filter>
     </ClInclude>
-    <ClInclude Include="IPersonListPresenter.h">
+    <ClInclude Include="IPersonListViewModel.h">
       <Filter>Файлы заголовков\PersonListDlg\presenter</Filter>
     </ClInclude>
     <ClInclude Include="PersonListPresenterImpl.h">

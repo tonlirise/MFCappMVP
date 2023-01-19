@@ -6,11 +6,17 @@
 
 #include "Person.h"
 
+class NameEditBoxObserver;
+
 class CPersonListDlg : public CDialogEx, public IPersonListView
 {
-	CPersonListPresenterImpl* m_PersonListPresenter {nullptr};
+	CPersonListPresenterImpl* m_PersonListPresenter{ nullptr };
+
+	CPerson GetPersonUiData();
+	long GetSelectedUserID();
+
 public:
-	CPersonListDlg(CWnd* pParent = nullptr);
+	CPersonListDlg(IPersonListViewModel* presenter, CWnd* pParent = nullptr);
 	enum { IDD = IDD_DIALOG_PERSON_LIST };
 
 protected:
@@ -21,8 +27,6 @@ protected:
 	DECLARE_MESSAGE_MAP()
 
 public:
-	virtual void SetPresenter(IPersonListPresenter* presenter) override;
-
 	CListBox m_UserListBox;
 	CEdit m_NameEditBox;
 	CEdit m_AgeEditBox;
@@ -36,12 +40,8 @@ public:
 
 	virtual void SetUserListBox(std::map<long, CPerson> data) override;
 	virtual void SetName(std::string value) override;
-	virtual std::string GetName() override;
 	virtual void SetAge(int value) override;
-	virtual int GetAge() override;
 	virtual void SetAddress(std::string value) override;
-	virtual std::string GetAddress() override;
-	virtual long getSelectedUserID() override;
 };
 
 class NameEditBoxObserver : public IObserver<std::string>
@@ -66,7 +66,7 @@ public:
 	virtual void Update(int* value) override
 	{
 		CString str;
-		str.Format(_T("%d"), value);
+		str.Format(_T("%d"), *value);
 		m_pDlg->m_AgeEditBox.SetWindowText(str);
 	}
 };

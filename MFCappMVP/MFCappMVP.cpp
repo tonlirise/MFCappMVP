@@ -74,9 +74,9 @@ BOOL CMFCappMVPApp::InitInstance()
 	// например на название организации
 	SetRegistryKey(_T("Локальные приложения, созданные с помощью мастера приложений"));
 
-	CPersonListDlg dlgPersonList;
-	CPersonListRepositoryImpl m_PersonListRepository;
-	CPersonListPresenterImpl m_PersonListPresenter = CPersonListPresenterImpl(&dlgPersonList, &m_PersonListRepository);
+	CPersonListRepositoryImpl personListRepository;
+	CPersonListPresenterImpl personListPresenter = CPersonListPresenterImpl(&personListRepository);
+	CPersonListDlg dlgPersonList(&personListPresenter);
 	
 	m_pMainWnd = &dlgPersonList;
 	INT_PTR nResponse = dlgPersonList.DoModal();

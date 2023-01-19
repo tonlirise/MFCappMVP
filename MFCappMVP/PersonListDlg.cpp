@@ -11,10 +11,12 @@
 #define new DEBUG_NEW
 #endif
 
-CPersonListDlg::CPersonListDlg(CWnd* pParent /*=nullptr*/)
-	: CDialogEx(CPersonListDlg::IDD, pParent)
+CPersonListDlg::CPersonListDlg(IPersonListViewModel* presenter,
+	CWnd* pParent /*=nullptr*/): CDialogEx(CPersonListDlg::IDD, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+
+	m_PersonListPresenter = static_cast<CPersonListPresenterImpl*>(presenter);
 }
 
 void CPersonListDlg::DoDataExchange(CDataExchange* pDX)
@@ -34,11 +36,6 @@ BEGIN_MESSAGE_MAP(CPersonListDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON_SAVE, &CPersonListDlg::OnBnClickedButtonSave)
 END_MESSAGE_MAP()
 
-void CPersonListDlg::SetPresenter(IPersonListPresenter* presenter)
-{
-	m_PersonListPresenter = static_cast<CPersonListPresenterImpl*>(presenter);
-}
-
 BOOL CPersonListDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
@@ -49,8 +46,36 @@ BOOL CPersonListDlg::OnInitDialog()
 		new UserListEditBoxObserver(this)
 		);
 
-
 	return TRUE;  
+}
+
+CPerson CPersonListDlg::GetPersonUiData()
+{
+	auto getStr = [this](CEdit* editText)
+	{
+		CString cstr = _T("");
+		editText->GetWindowText(cstr);
+		return cstr;
+	};
+
+	CPerson resPerson;
+	std::string tmpValue;
+
+	tmpValue = CT2CA(getStr(&m_NameEditBox));
+	resPerson.SetName(tmpValue);
+
+	int nAge = _ttoi(getStr(&m_AgeEditBox));
+	resPerson.SetAge(nAge);
+
+	tmpValue = CT2CA(getStr(&m_AddressEditBox));
+	resPerson.SetAddress(tmpValue);
+
+	return resPerson;
+}
+
+long CPersonListDlg::GetSelectedUserID()
+{
+	return m_UserListBox.GetCurSel();
 }
 
 void CPersonListDlg::SetUserListBox(std::map<long, CPerson> data)
@@ -71,27 +96,11 @@ void CPersonListDlg::SetName(std::string value)
 	m_NameEditBox.SetWindowText(wstr.c_str());
 }
 
-std::string CPersonListDlg::GetName()
-{
-	CString cstr = _T("");
-	m_NameEditBox.GetWindowText(cstr);
-	std::string str = CT2CA(cstr);
-	return str;
-}
-
 void CPersonListDlg::SetAge(int value)
 {
 	CString str;
 	str.Format(_T("%d"), value);
 	m_AgeEditBox.SetWindowText(str);
-}
-
-int CPersonListDlg::GetAge()
-{
-	CString cstr;
-	m_AgeEditBox.GetWindowText(cstr);
-	int value = _ttoi(cstr);
-	return value;
 }
 
 void CPersonListDlg::SetAddress(std::string value)
@@ -100,32 +109,17 @@ void CPersonListDlg::SetAddress(std::string value)
 	m_AddressEditBox.SetWindowText(wstr.c_str());
 }
 
-std::string CPersonListDlg::GetAddress()
-{
-	CString cstr = _T("");
-	m_AddressEditBox.GetWindowText(cstr);
-	std::string str = CT2CA(cstr);
-	return str;
-}
-
-
 void CPersonListDlg::OnLbnSelchangeListAll()
 {
-	m_PersonListPresenter->SelectItem();
-}
-
-long CPersonListDlg::getSelectedUserID()
-{
-	long value = m_UserListBox.GetCurSel();
-	return value;
+	m_PersonListPresenter->SelectItem(GetSelectedUserID()+1);
 }
 
 void CPersonListDlg::OnBnClickedButtonUpdate()
 {
-	m_PersonListPresenter->UpdateUser();
+	m_PersonListPresenter->UpdateUser(GetPersonUiData());
 }
 
 void CPersonListDlg::OnBnClickedButtonSave()
 {
-	m_PersonListPresenter->SaveUser();
+	m_PersonListPresenter->SaveUser(GetPersonUiData());
 }

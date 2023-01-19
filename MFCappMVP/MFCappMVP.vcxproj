@@ -193,7 +193,7 @@
     <ClInclude Include="IPersonListView.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MFCappMVP.h" />
-    <ClInclude Include="IPersonListPresenter.h" />
+    <ClInclude Include="IPersonListViewModel.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
