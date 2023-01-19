@@ -72,8 +72,8 @@ namespace Middle
 		CPersonListViewTestImpl testView;
 		CPersonListRepositoryTestIml testRepository;
 
-		CPersonListPresenterImpl personListPresenterTest
-			= CPersonListPresenterImpl(&testView, &testRepository);
+		CPersonListViewModelImpl personListPresenterTest
+			= CPersonListViewModelImpl(&testView, &testRepository);
 
 		testView.m_sTestName = "Ivan";
 		testView.m_nTestAge = 35;
@@ -94,8 +94,8 @@ namespace Middle
 		CPersonListViewTestImpl testView;
 		CPersonListRepositoryTestIml testRepository;
 
-		CPersonListPresenterImpl personListPresenterTest
-			= CPersonListPresenterImpl(&testView, &testRepository);
+		CPersonListViewModelImpl personListPresenterTest
+			= CPersonListViewModelImpl(&testView, &testRepository);
 
 		personListPresenterTest.SaveUser();
 

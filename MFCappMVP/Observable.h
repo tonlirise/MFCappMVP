@@ -25,7 +25,7 @@ public:
 		m_pObserver = pObserver;
 	}
 
-	virtual void Update(T* pValue)
+	virtual void Update(T* pValue) override
 	{
 		if(m_pObserver && pValue) m_pObserver->Update(pValue);
 	}

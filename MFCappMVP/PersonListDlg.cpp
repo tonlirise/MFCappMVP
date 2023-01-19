@@ -16,7 +16,7 @@ CPersonListDlg::CPersonListDlg(IPersonListViewModel* presenter,
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 
-	m_PersonListPresenter = static_cast<CPersonListPresenterImpl*>(presenter);
+	m_PersonListPresenter = static_cast<CPersonListViewModelImpl*>(presenter);
 }
 
 void CPersonListDlg::DoDataExchange(CDataExchange* pDX)

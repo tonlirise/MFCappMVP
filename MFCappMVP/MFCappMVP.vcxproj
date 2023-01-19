@@ -187,7 +187,7 @@
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="PersonListDlg.h" />
-    <ClInclude Include="PersonListPresenterImpl.h" />
+    <ClInclude Include="PersonListViewModelImpl.h" />
     <ClInclude Include="PersonListRepositoryImpl.h" />
     <ClInclude Include="IPersonListRepository.h" />
     <ClInclude Include="IPersonListView.h" />
@@ -201,7 +201,7 @@
   <ItemGroup>
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="PersonListDlg.cpp" />
-    <ClCompile Include="PersonListPresenterImpl.cpp" />
+    <ClCompile Include="PersonListViewModelImpl.cpp" />
     <ClCompile Include="PersonListRepositoryImpl.cpp" />
     <ClCompile Include="MFCappMVP.cpp" />
     <ClCompile Include="stdafx.cpp">

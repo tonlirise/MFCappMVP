@@ -1,7 +1,7 @@
 #pragma once
 #include "MFCappMVP.h"
 #include "IPersonListView.h"
-#include "PersonListPresenterImpl.h"
+#include "PersonListViewModelImpl.h"
 #include "Observer.h"
 
 #include "Person.h"
@@ -10,11 +10,10 @@ class NameEditBoxObserver;
 
 class CPersonListDlg : public CDialogEx, public IPersonListView
 {
-	CPersonListPresenterImpl* m_PersonListPresenter{ nullptr };
+	CPersonListViewModelImpl* m_PersonListPresenter{ nullptr };
 
 	CPerson GetPersonUiData();
 	long GetSelectedUserID();
-
 public:
 	CPersonListDlg(IPersonListViewModel* presenter, CWnd* pParent = nullptr);
 	enum { IDD = IDD_DIALOG_PERSON_LIST };
