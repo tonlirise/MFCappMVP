@@ -13,15 +13,13 @@ CPersonListPresenterImpl::CPersonListPresenterImpl(IPersonListView* i_IPersonLis
 CPersonListPresenterImpl::~CPersonListPresenterImpl() {}
 
 
-void CPersonListPresenterImpl::UpdateUser()
+void CPersonListPresenterImpl::UpdateUser(CPerson objPerson)
 {
-	std::string sName = m_IPersonListView->GetName();
+	auto user = m_IPersonListRepository->FindbyName(objPerson.GetName());
 
-	CPerson user = m_IPersonListRepository->FindbyName(sName);
-
-	user.SetName(sName);
-	user.SetAge(m_IPersonListView->GetAge());
-	user.SetAddress(m_IPersonListView->GetAddress());
+	user.SetName(objPerson.GetName());
+	user.SetAge(objPerson.GetAge());
+	user.SetAddress(objPerson.GetAddress());
 
 	m_IPersonListRepository->UpdateUser(user);
 }
@@ -33,30 +31,21 @@ void CPersonListPresenterImpl::UpdateUserListView()
 	m_IPersonListView->SetUserListBox(allUserLIst);
 }
 
-void CPersonListPresenterImpl::SaveUser()
+void CPersonListPresenterImpl::SaveUser(CPerson objPerson)
 {
-	CPerson user;
-	user.SetName(m_IPersonListView->GetName());
-	user.SetAge(m_IPersonListView->GetAge());
-	user.SetAddress(m_IPersonListView->GetAddress());
+	bool validate = ValidateDuplicationUser(objPerson);
 
-	bool validate = ValidateDuplicationUser(user);
 	if (validate == false)
-	{
-		m_IPersonListRepository->SaveUser(user);
-	}
+		m_IPersonListRepository->SaveUser(objPerson);
 	else
-	{
-		m_IPersonListRepository->UpdateUser(user);
-	}
+		m_IPersonListRepository->UpdateUser(objPerson);
 
 	UpdateUserListView();
 }
 
-void CPersonListPresenterImpl::SelectItem()
+void CPersonListPresenterImpl::SelectItem(int nSelectedUserID)
 {
-	long id = m_IPersonListView->getSelectedUserID() + 1;
-	CPerson user = m_IPersonListRepository->FindbyID(id);
+	CPerson user = m_IPersonListRepository->FindbyID(nSelectedUserID);
 
 	m_IPersonListView->SetName(user.GetName());
 	m_IPersonListView->SetAge(user.GetAge());

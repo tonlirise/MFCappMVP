@@ -8,13 +8,14 @@
 class CPersonListDlg : public CDialogEx, public IPersonListView
 {
 	IPersonListPresenter* m_PersonListPresenter {nullptr};
+
+	CPerson GetPersonUiData();
+	long GetSelectedUserID();
 public:
 	CPersonListDlg(CWnd* pParent = nullptr);
 	enum { IDD = IDD_DIALOG_PERSON_LIST };
-
 protected:
 	HICON m_hIcon;
-
 	virtual void DoDataExchange(CDataExchange* pDX);
 	virtual BOOL OnInitDialog();
 	DECLARE_MESSAGE_MAP()
@@ -35,10 +36,6 @@ public:
 
 	virtual void SetUserListBox(std::map<long, CPerson> data) override;
 	virtual void SetName(std::string value) override;
-	virtual std::string GetName() override;
 	virtual void SetAge(int value) override;
-	virtual int GetAge() override;
 	virtual void SetAddress(std::string value) override;
-	virtual std::string GetAddress() override;
-	virtual long getSelectedUserID() override;
 };

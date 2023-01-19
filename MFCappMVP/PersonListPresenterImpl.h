@@ -21,7 +21,7 @@ public:
 
 	void UpdateUserListView();
 
-	virtual void UpdateUser() override;
-	virtual void SaveUser() override;
-	virtual void SelectItem() override;
+	virtual void UpdateUser(CPerson objPerson) override;
+	virtual void SaveUser(CPerson objPerson) override;
+	virtual void SelectItem(int nSelectedUserID) override;
 };
