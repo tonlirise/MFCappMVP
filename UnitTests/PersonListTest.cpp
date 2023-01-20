@@ -5,38 +5,6 @@
 
 namespace Middle
 {
-	class CPersonListViewTestImpl : public IPersonListView
-	{
-	public:
-		int m_nCountSetUserListBox{ 0 };
-
-		int m_nCountNumGetName{ 0 };
-		int m_nCountNumGetAge{ 0 };
-		int m_nCountNumGetAddress{ 0 };
-
-		std::string m_sTestName;
-		int m_nTestAge{-1};
-		std::string m_sTestAddress;
-
-		CPersonListViewTestImpl() {};
-		~CPersonListViewTestImpl() {};
-
-		void SetUserListBox(std::map<long, CPerson> data) { m_nCountSetUserListBox++; };
-		void SetName(std::string value) {};
-		std::string GetName() { m_nCountNumGetName++; return m_sTestName; };
-		long getSelectedUserID() { return -1; };
-
-		void SetAge(int value) {};
-		int GetAge() { m_nCountNumGetAge++; return m_nTestAge; };
-
-		void SetAddress(std::string value) {};
-		std::string GetAddress() { m_nCountNumGetAddress++; return m_sTestAddress; };
-
-		void SetPresenter(IPersonListViewModel* presenter) {};
-
-	};
-
-
 	class CPersonListRepositoryTestIml : public IPersonListRepository
 	{
 	public:
@@ -59,7 +27,6 @@ namespace Middle
 
 	};
 
-
 	class CPersonListTest : public testing::Test
 	{
 	public:
@@ -69,41 +36,61 @@ namespace Middle
 
 	TEST_F(CPersonListTest, SaveButtonClickTestSucces)
 	{
-		CPersonListViewTestImpl testView;
 		CPersonListRepositoryTestIml testRepository;
+		CPersonListViewModelImpl personListPresenterTest(&testRepository);
 
-		CPersonListViewModelImpl personListPresenterTest
-			= CPersonListViewModelImpl(&testView, &testRepository);
+		int nCountSetUserListBox{ 0 };
 
-		testView.m_sTestName = "Ivan";
-		testView.m_nTestAge = 35;
-		testView.m_sTestAddress = "Lenina street";
+		auto nameUpdater = [](std::string sVal){};
 
-		personListPresenterTest.SaveUser();
+		auto ageUpdater = [](int nVal){};
 
-		EXPECT_EQ(1, testView.m_nCountNumGetName);
-		EXPECT_EQ(1, testView.m_nCountNumGetAge);
-		EXPECT_EQ(1, testView.m_nCountNumGetAddress);
-		EXPECT_EQ(1, testView.m_nCountSetUserListBox);
+		auto addressUpdater = [&](std::string sVal){};
 
+		auto userListUpdater = [&nCountSetUserListBox](std::map<long, CPerson> data)
+		{
+			nCountSetUserListBox++;
+		};
+
+		personListPresenterTest.UpdateObservers(nameUpdater, ageUpdater, addressUpdater, userListUpdater);
+
+		CPerson person;
+		person.SetName("Ivan");
+		person.SetAge(35);
+		person.SetAddress("Lenina street");
+
+		personListPresenterTest.SaveUser(person);
+
+		EXPECT_EQ(1, nCountSetUserListBox);
 		EXPECT_EQ(1, testRepository.m_nCountSaveUser);
 	}
-
 	TEST_F(CPersonListTest, SaveButtonClickTestError)
 	{
-		CPersonListViewTestImpl testView;
 		CPersonListRepositoryTestIml testRepository;
+		CPersonListViewModelImpl personListPresenterTest(&testRepository);
 
-		CPersonListViewModelImpl personListPresenterTest
-			= CPersonListViewModelImpl(&testView, &testRepository);
+		int nCountSetUserListBox{ 0 };
 
-		personListPresenterTest.SaveUser();
+		auto nameUpdater = [](std::string sVal){};
 
-		EXPECT_EQ(1, testView.m_nCountNumGetName);
-		EXPECT_EQ(1, testView.m_nCountNumGetAge);
-		EXPECT_EQ(1, testView.m_nCountNumGetAddress);
-		EXPECT_EQ(1, testView.m_nCountSetUserListBox);
+		auto ageUpdater = [](int nVal){};
 
+		auto addressUpdater = [](std::string sVal){};
+
+		auto userListUpdater = [&nCountSetUserListBox](std::map<long, CPerson> data)
+		{
+			nCountSetUserListBox++;
+		};
+
+		personListPresenterTest.UpdateObservers(nameUpdater, ageUpdater, addressUpdater, userListUpdater);
+
+		CPerson person;
+		person.SetAge(35);
+		person.SetAddress("Lenina street");
+
+		personListPresenterTest.SaveUser(person);
+
+		EXPECT_EQ(1, nCountSetUserListBox);
 		EXPECT_EQ(0, testRepository.m_nCountSaveUser);
 	}
 }

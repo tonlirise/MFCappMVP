@@ -164,16 +164,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\MFCappMVP\IPersonListRepository.h" />
+    <ClInclude Include="..\MFCappMVP\IPersonListViewModel.h" />
+    <ClInclude Include="..\MFCappMVP\Observable.h" />
+    <ClInclude Include="..\MFCappMVP\Observer.h" />
     <ClInclude Include="..\MFCappMVP\Person.h" />
-    <ClInclude Include="..\MFCappMVP\PersonListPresenterImpl.h" />
     <ClInclude Include="..\MFCappMVP\PersonListRepository.h" />
     <ClInclude Include="..\MFCappMVP\IPersonListView.h" />
+    <ClInclude Include="..\MFCappMVP\PersonListViewModelImpl.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\MFCappMVP\Person.cpp" />
-    <ClCompile Include="..\MFCappMVP\PersonListPresenterImpl.cpp" />
+    <ClCompile Include="..\MFCappMVP\PersonListViewModelImpl.cpp" />
     <ClCompile Include="PersonListTest.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

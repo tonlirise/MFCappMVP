@@ -24,6 +24,15 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\MFCappMVP\Person.h">
+      <Filter>Source Files\PersonList</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MFCappMVP\PersonListRepository.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MFCappMVP\IPersonListView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\MFCappMVP\IPersonListRepository.h">
       <Filter>Source Files\PersonList</Filter>
     </ClInclude>
@@ -34,9 +43,6 @@
       <Filter>Source Files\PersonList</Filter>
     </ClInclude>
     <ClInclude Include="..\MFCappMVP\Observer.h">
-      <Filter>Source Files\PersonList</Filter>
-    </ClInclude>
-    <ClInclude Include="..\MFCappMVP\Person.h">
       <Filter>Source Files\PersonList</Filter>
     </ClInclude>
     <ClInclude Include="..\MFCappMVP\PersonListViewModelImpl.h">
