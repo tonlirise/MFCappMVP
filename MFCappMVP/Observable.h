@@ -2,11 +2,14 @@
 
 #include "Observer.h"
 
+#include <memory>
+
 template <typename T>
 class IUpdateObserver
 {
 public:
 	virtual void UpdateObserver(std::function<void(T)> observerFun) = 0;
+	virtual void NotifyChanges() = 0;
 };
 
 template <typename T>
@@ -16,6 +19,7 @@ template <typename T>
 class CUiObservable : public IObservable<T>
 {
 	std::function<void(T)> m_observerFun;
+	std::shared_ptr<T> m_pValue;
 public:
 	CUiObservable() = default;
 	~CUiObservable() = default;
@@ -25,8 +29,14 @@ public:
 		m_observerFun = observerFun;
 	}
 
-	virtual void Update(T* pValue) override
+	virtual void UpdateValue(std::shared_ptr<T> pValue) override
 	{
-		if(pValue) m_observerFun(*pValue);
+		m_pValue = pValue;
+		NotifyChanges();
+	}
+
+	virtual void NotifyChanges() override
+	{
+		if (m_observerFun && m_pValue) m_observerFun(*m_pValue);
 	}
 };

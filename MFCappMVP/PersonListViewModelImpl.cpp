@@ -28,6 +28,8 @@ void CPersonListViewModelImpl::UpdateObservers(std::function<void(std::string)> 
 
 void CPersonListViewModelImpl::UpdateUser(CPerson objPerson)
 {
+	m_pObsUserList->NotifyChanges();
+
 	auto user = m_IPersonListRepository->FindbyName(objPerson.GetName());
 
 	user.SetName(objPerson.GetName());
@@ -40,7 +42,7 @@ void CPersonListViewModelImpl::UpdateUser(CPerson objPerson)
 void CPersonListViewModelImpl::UpdateUserListView()
 {
 	std::map<long, CPerson> allUserLIst = m_IPersonListRepository->GetAllUsers();
-	m_pObsUserList->Update(&allUserLIst);
+	m_pObsUserList->UpdateValue(std::make_shared<std::map<long, CPerson>>(allUserLIst));
 }
 
 void CPersonListViewModelImpl::SaveUser(CPerson objPerson)
@@ -58,12 +60,12 @@ void CPersonListViewModelImpl::SelectItem(int nSelectedUserID)
 {
 	CPerson user = m_IPersonListRepository->FindbyID(nSelectedUserID);
 
-	m_pObsName->Update(&user.GetName());
+	m_pObsName->UpdateValue(std::make_shared<std::string>(user.GetName()));
 
 	int nAge = (user.GetAge());
-	m_pObsAge->Update(&nAge);
+	m_pObsAge->UpdateValue(std::make_shared<int>(nAge));
 
-	m_pObsAddress->Update(&user.GetAddress());
+	m_pObsAddress->UpdateValue(std::make_shared<std::string>(user.GetAddress()));
 }
 
 bool CPersonListViewModelImpl::ValidateDuplicationUser(CPerson user)

@@ -1,10 +1,12 @@
 #pragma once
 
+#include <memory>
+
 template <typename T>
 class IUpdate
 {
 public:
-	virtual void Update(T* pValue) = 0;
+	virtual void UpdateValue(std::shared_ptr<T> pValue) = 0;
 };
 
 template <typename T>
