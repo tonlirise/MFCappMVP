@@ -8,10 +8,11 @@
 
 class CPersonListViewModel : public IUpdateObserver<CPersonListUiState>
 {
-private:
 	IPersonListRepository* m_IPersonListRepository {nullptr};
-
 	IObservable<CPersonListUiState>* m_pObsUiState{nullptr};
+
+	CPersonListUiState m_uiCurrState;
+	void PushCurrStateToUI();
 
 public:
 	CPersonListViewModel(IPersonListRepository* i_IPersonListRepository);
@@ -19,7 +20,6 @@ public:
 	~CPersonListViewModel();
 
 	void UpdateObserver(std::function<void(CPersonListUiState)> m_obsName) override;
-	void NotifyChanges() override;
 
 	void UpdateUser(CPerson objPerson);
 	void SaveUser(CPerson objPerson);
