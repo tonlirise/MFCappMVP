@@ -1,21 +1,24 @@
 #pragma once
-#include "Person.h"
+
 #include "IPersonListRepository.h"
+#include "PersonsDataSource.h"
+#include "Person.h"
 
 #include <map>
 
 class CPersonListRepositoryImpl : public IPersonListRepository
 {
+	IPersonsDataSource* m_pPersonsDataSource{ nullptr };
 public:
 
-	void SaveUser(CPerson user) override;
-	virtual CPerson GetUser(long id) override;
-	virtual std::map<long, CPerson> GetAllUsers() override;
-	virtual CPerson FindbyName(std::string name) override;
-	virtual CPerson FindbyID(long id) override;
-	virtual void UpdateUser(CPerson user) override;
+	CPersonListRepositoryImpl(IPersonsDataSource* pPersonsDataSource);
 
-private:
-	long sequence = 0;
-	std::map<long, CPerson> m_mapMemoryStorage;
+	virtual CPerson* SelectItem(int nSelectedUserID) override;
+
+	virtual std::map<long, CPerson> GetAllUsers() override;
+
+	virtual void UpdateUser(CPerson objPerson) override;
+
+	virtual void SaveUser(CPerson objPerson) override;
+
 };

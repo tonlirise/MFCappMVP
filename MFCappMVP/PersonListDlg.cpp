@@ -1,22 +1,20 @@
 #include "stdafx.h"
 #include "framework.h"
 #include "MFCappMVP.h"
-#include "afxdialogex.h"
 
 #include "PersonListDlg.h"
-
-#include <iostream>
+#include "PersonListUiState.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
-CPersonListDlg::CPersonListDlg(IPersonListViewModel* pViewModel,
+CPersonListDlg::CPersonListDlg(CPersonListViewModel* pViewModel,
 	CWnd* pParent /*=nullptr*/): CDialogEx(CPersonListDlg::IDD, pParent)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 
-	m_pPersonListViewModel = static_cast<CPersonListViewModelImpl*>(pViewModel);
+	m_pPersonListViewModel = pViewModel;
 }
 
 void CPersonListDlg::DoDataExchange(CDataExchange* pDX)
@@ -40,37 +38,12 @@ BOOL CPersonListDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	auto nameUpdater = [this](std::string sVal)
+	auto uiStateUpdater = [this](CPersonListUiState newUiState)
 	{
-		std::wstring wstr(sVal.begin(), sVal.end());
-		m_NameEditBox.SetWindowText(wstr.c_str());
+		newUiState.Apply(&m_UserListBox, &m_NameEditBox, &m_AgeEditBox, &m_AddressEditBox);
 	};
 
-	auto ageUpdater = [this](int nVal)
-	{
-		CString str;
-		str.Format(_T("%d"), nVal);
-		m_AgeEditBox.SetWindowText(str);
-	};
-
-	auto addressUpdater = [this](std::string sVal)
-	{
-		std::wstring wstr(sVal.begin(), sVal.end());
-		m_AddressEditBox.SetWindowText(wstr.c_str());
-	};
-
-	auto userListUpdater = [this](std::map<long, CPerson> data)
-	{
-		m_UserListBox.ResetContent();
-		for each (auto i in data)
-		{
-			std::string val = i.second.GetName() + " | " + i.second.GetAddress();
-			std::wstring path_wstr(val.begin(), val.end());
-			m_UserListBox.InsertString(-1, path_wstr.c_str());
-		}
-	};
-
-	m_pPersonListViewModel->UpdateObservers(nameUpdater, ageUpdater, addressUpdater, userListUpdater);
+	m_pPersonListViewModel->UpdateObserver(uiStateUpdater);
 
 	return TRUE;  
 }

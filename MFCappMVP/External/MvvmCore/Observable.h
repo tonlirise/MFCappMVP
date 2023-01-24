@@ -29,9 +29,9 @@ public:
 		m_observerFun = observerFun;
 	}
 
-	virtual void UpdateValue(std::shared_ptr<T> pValue) override
+	virtual void UpdateValue(T* pValue) override
 	{
-		m_pValue = pValue;
+		m_pValue = std::shared_ptr<T>(pValue);
 		NotifyChanges();
 	}
 

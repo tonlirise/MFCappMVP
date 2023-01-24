@@ -7,7 +7,7 @@
 #include "MFCappMVP.h"
 
 #include "PersonListRepositoryImpl.h"
-#include "PersonListViewModelImpl.h"
+#include "PersonListViewModel.h"
 #include "PersonListDlg.h"
 
 #ifdef _DEBUG
@@ -74,8 +74,9 @@ BOOL CMFCappMVPApp::InitInstance()
 	// например на название организации
 	SetRegistryKey(_T("Локальные приложения, созданные с помощью мастера приложений"));
 
-	CPersonListRepositoryImpl personListRepository;
-	CPersonListViewModelImpl personListViewModel(&personListRepository);
+	CPersonsDataSourceImpl personsDataSource;
+	CPersonListRepositoryImpl personListRepository(&personsDataSource);
+	CPersonListViewModel personListViewModel(&personListRepository);
 	CPersonListDlg dlgPersonList(&personListViewModel);
 	
 	m_pMainWnd = &dlgPersonList;

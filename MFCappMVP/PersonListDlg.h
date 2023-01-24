@@ -1,19 +1,18 @@
 #pragma once
 #include "MFCappMVP.h"
-#include "IPersonListViewModel.h"
-#include "PersonListViewModelImpl.h"
-#include "Observer.h"
+#include "PersonListViewModel.h"
+#include "External/MvvmCore/Observer.h"
 
 #include "Person.h"
 
 class CPersonListDlg : public CDialogEx
 {
-	CPersonListViewModelImpl* m_pPersonListViewModel{ nullptr };
+	CPersonListViewModel* m_pPersonListViewModel{ nullptr };
 
 	CPerson GetPersonUiData();
 	long GetSelectedUserID();
 public:
-	CPersonListDlg(IPersonListViewModel* pViewModel, CWnd* pParent = nullptr);
+	CPersonListDlg(CPersonListViewModel* pViewModel, CWnd* pParent = nullptr);
 	enum { IDD = IDD_DIALOG_PERSON_LIST };
 
 protected:

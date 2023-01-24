@@ -13,32 +13,23 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Исходные файлы\PersonListDlg">
+    <Filter Include="PersonListDlg">
       <UniqueIdentifier>{429ac518-9edb-44d5-b5de-43a4c20a0838}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\PersonListDlg\model">
-      <UniqueIdentifier>{5b0e1b71-c06b-45e8-b24c-2c009b650c6a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\PersonListDlg">
-      <UniqueIdentifier>{e92d197a-572d-46c2-8202-adca437d09d7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\PersonListDlg\model">
-      <UniqueIdentifier>{1539e08f-d480-416a-bba1-ab544c5fa818}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\PersonListDlg\view">
-      <UniqueIdentifier>{d3548fa8-a02f-495e-8735-dded1842233d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\PersonListDlg\view">
-      <UniqueIdentifier>{a8b80f78-cb39-4ae3-88c0-74e185b5cec1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Файлы заголовков\MVVM">
+    <Filter Include="External">
       <UniqueIdentifier>{1444bab7-08a8-4369-9390-5ac81212bd4f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\PersonListDlg\viewmodel">
+    <Filter Include="External\MvvmCore">
+      <UniqueIdentifier>{f6018570-2113-462d-952f-73ff658d58c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PersonListDlg\presentation">
       <UniqueIdentifier>{00976dd4-1040-4672-bad8-ea539167d081}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы заголовков\PersonListDlg\viewmodel">
-      <UniqueIdentifier>{9860f740-210f-4a74-8749-9cbcb41a5ce4}</UniqueIdentifier>
+    <Filter Include="PersonListDlg\domain">
+      <UniqueIdentifier>{f43b73d2-1d89-4971-bf12-1e028cd86625}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PersonListDlg\data">
+      <UniqueIdentifier>{5b0e1b71-c06b-45e8-b24c-2c009b650c6a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -54,52 +45,58 @@
     <ClInclude Include="Resource.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Person.h">
-      <Filter>Файлы заголовков\PersonListDlg\model</Filter>
-    </ClInclude>
-    <ClInclude Include="IPersonListRepository.h">
-      <Filter>Файлы заголовков\PersonListDlg\model</Filter>
-    </ClInclude>
-    <ClInclude Include="PersonListRepositoryImpl.h">
-      <Filter>Файлы заголовков\PersonListDlg\model</Filter>
-    </ClInclude>
-    <ClInclude Include="IPersonListViewModel.h">
-      <Filter>Файлы заголовков\PersonListDlg\viewmodel</Filter>
-    </ClInclude>
-    <ClInclude Include="PersonListViewModelImpl.h">
-      <Filter>Файлы заголовков\PersonListDlg\viewmodel</Filter>
-    </ClInclude>
-    <ClInclude Include="PersonListDlg.h">
-      <Filter>Файлы заголовков\PersonListDlg\view</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Observable.h">
-      <Filter>Файлы заголовков\MVVM</Filter>
+    <ClInclude Include="External\MvvmCore\Observable.h">
+      <Filter>External\MvvmCore</Filter>
     </ClInclude>
-    <ClInclude Include="Observer.h">
-      <Filter>Файлы заголовков\MVVM</Filter>
+    <ClInclude Include="External\MvvmCore\Observer.h">
+      <Filter>External\MvvmCore</Filter>
+    </ClInclude>
+    <ClInclude Include="PersonListViewModel.h">
+      <Filter>PersonListDlg\presentation</Filter>
+    </ClInclude>
+    <ClInclude Include="PersonListDlg.h">
+      <Filter>PersonListDlg\presentation</Filter>
+    </ClInclude>
+    <ClInclude Include="PersonsDataSource.h">
+      <Filter>PersonListDlg\data</Filter>
+    </ClInclude>
+    <ClInclude Include="Person.h">
+      <Filter>PersonListDlg\data</Filter>
+    </ClInclude>
+    <ClInclude Include="IPersonListRepository.h">
+      <Filter>PersonListDlg\domain</Filter>
+    </ClInclude>
+    <ClInclude Include="PersonListRepositoryImpl.h">
+      <Filter>PersonListDlg\data</Filter>
+    </ClInclude>
+    <ClInclude Include="PersonListUiState.h">
+      <Filter>PersonListDlg\presentation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MFCappMVP.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Person.cpp">
-      <Filter>Исходные файлы\PersonListDlg\model</Filter>
-    </ClCompile>
-    <ClCompile Include="PersonListRepositoryImpl.cpp">
-      <Filter>Исходные файлы\PersonListDlg\model</Filter>
-    </ClCompile>
-    <ClCompile Include="PersonListViewModelImpl.cpp">
-      <Filter>Исходные файлы\PersonListDlg\viewmodel</Filter>
-    </ClCompile>
-    <ClCompile Include="PersonListDlg.cpp">
-      <Filter>Исходные файлы\PersonListDlg\view</Filter>
+    <ClCompile Include="PersonListViewModel.cpp">
+      <Filter>PersonListDlg\presentation</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="PersonListDlg.cpp">
+      <Filter>PersonListDlg\presentation</Filter>
+    </ClCompile>
+    <ClCompile Include="PersonsDataSource.cpp">
+      <Filter>PersonListDlg\data</Filter>
+    </ClCompile>
+    <ClCompile Include="Person.cpp">
+      <Filter>PersonListDlg\data</Filter>
+    </ClCompile>
+    <ClCompile Include="PersonListRepositoryImpl.cpp">
+      <Filter>PersonListDlg\data</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

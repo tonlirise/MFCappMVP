@@ -183,25 +183,26 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Observable.h" />
-    <ClInclude Include="Observer.h" />
+    <ClInclude Include="IPersonListRepository.h" />
+    <ClInclude Include="PersonsDataSource.h" />
+    <ClInclude Include="External\MvvmCore\Observable.h" />
+    <ClInclude Include="External\MvvmCore\Observer.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="PersonListDlg.h" />
-    <ClInclude Include="PersonListViewModelImpl.h" />
+    <ClInclude Include="PersonListViewModel.h" />
     <ClInclude Include="PersonListRepositoryImpl.h" />
-    <ClInclude Include="IPersonListRepository.h" />
-    <ClInclude Include="IPersonListView.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MFCappMVP.h" />
-    <ClInclude Include="IPersonListViewModel.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="PersonListUiState.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="PersonsDataSource.cpp" />
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="PersonListDlg.cpp" />
-    <ClCompile Include="PersonListViewModelImpl.cpp" />
+    <ClCompile Include="PersonListViewModel.cpp" />
     <ClCompile Include="PersonListRepositoryImpl.cpp" />
     <ClCompile Include="MFCappMVP.cpp" />
     <ClCompile Include="stdafx.cpp">

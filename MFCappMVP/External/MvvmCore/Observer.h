@@ -6,7 +6,7 @@ template <typename T>
 class IUpdate
 {
 public:
-	virtual void UpdateValue(std::shared_ptr<T> pValue) = 0;
+	virtual void UpdateValue(T* pValue) = 0;
 };
 
 template <typename T>
