@@ -19,6 +19,6 @@ public:
 
 	virtual void UpdateUser(CPerson objPerson) override;
 
-	virtual void SaveUser(CPerson objPerson) override;
+	virtual bool SaveUser(CPerson objPerson) override;
 
 };

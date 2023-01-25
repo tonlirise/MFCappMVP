@@ -13,5 +13,5 @@ public:
 
 	virtual void UpdateUser(CPerson objPerson) = 0;
 
-	virtual void SaveUser(CPerson objPerson) = 0;
+	virtual bool SaveUser(CPerson objPerson) = 0;
 };

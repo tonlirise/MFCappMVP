@@ -12,9 +12,14 @@ CPerson* CPersonListRepositoryImpl::SelectItem(int nSelectedUserID)
 	return m_pPersonsDataSource->FindbyID(nSelectedUserID);
 }
 
-void CPersonListRepositoryImpl::SaveUser(CPerson objPerson)
+bool CPersonListRepositoryImpl::SaveUser(CPerson objPerson)
 {
-	m_pPersonsDataSource->SaveUser(objPerson);
+	if (!m_pPersonsDataSource->FindbyName(objPerson.GetName()))
+	{
+		m_pPersonsDataSource->SaveUser(objPerson);
+		return true;
+	}
+	return false;
 }
 
 std::map<long, CPerson> CPersonListRepositoryImpl::GetAllUsers()

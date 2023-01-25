@@ -183,6 +183,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DispatcherShowMessage.h" />
     <ClInclude Include="IPersonListRepository.h" />
     <ClInclude Include="PersonsDataSource.h" />
     <ClInclude Include="External\MvvmCore\Observable.h" />

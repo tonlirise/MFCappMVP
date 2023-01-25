@@ -6,7 +6,17 @@
 
 #include "Person.h"
 
-class CPersonListUiState
+class IPersonListUiState
+{
+public:
+	virtual void Apply(CListBox* pUserListBox
+		, CEdit* pNameEditBox
+		, CEdit* pAgeEditBox
+		, CEdit* pAddressEditBox) = 0;
+};
+
+
+class CPersonListUiStateMain : public IPersonListUiState
 {
 	std::shared_ptr<std::map<long, CPerson>> m_ptrMapPersonsList;
 	
@@ -17,32 +27,33 @@ class CPersonListUiState
 	std::shared_ptr<std::string> m_ptrAddress;
 
 public:
-	CPersonListUiState() = default;
+	CPersonListUiStateMain() = default;
+		
 
-	void SetPersonList(std::map<long, CPerson>* mapPersonsList)
+	void SetPersonList(const std::map<long, CPerson>& mapPersonsList)
 	{
-		m_ptrMapPersonsList = std::make_shared<std::map<long, CPerson>>(*mapPersonsList);
+		m_ptrMapPersonsList = std::make_shared<std::map<long, CPerson>>(mapPersonsList);
 	}
 
-	void SetName(std::string* sName)
+	void SetName(const std::string& sName)
 	{
-		m_ptrName = std::make_shared<std::string>(*sName);
+		m_ptrName = std::make_shared<std::string>(sName);
 	}
 
-	void SetAge(long nAge)
+	void SetAge(const long& nAge)
 	{
 		m_ptrAge = std::make_shared<long>(nAge);
 	}
 
-	void SetAddress(std::string* sAddress)
+	void SetAddress(const std::string& sAddress)
 	{
-		m_ptrAddress = std::make_shared<std::string>(*sAddress);
+		m_ptrAddress = std::make_shared<std::string>(sAddress);
 	}
 
-	void Apply(CListBox* pUserListBox,
+	virtual void Apply(CListBox* pUserListBox,
 		CEdit* pNameEditBox,
 		CEdit* pAgeEditBox,
-		CEdit* pAddressEditBox)
+		CEdit* pAddressEditBox) override
 	{
 		if (pUserListBox && m_ptrMapPersonsList)
 		{
@@ -81,5 +92,24 @@ public:
 		m_ptrName = nullptr;
 		m_ptrAge = nullptr;
 		m_ptrAddress = nullptr;
+	}
+};
+
+class CPersonListUiStateShowMessage : public IPersonListUiState
+{
+	std::string m_sValue;
+public:
+	CPersonListUiStateShowMessage(std::string sValue) 
+	{
+		m_sValue = sValue;
+	}
+
+	virtual void Apply(CListBox* pUserListBox,
+		CEdit* pNameEditBox,
+		CEdit* pAgeEditBox,
+		CEdit* pAddressEditBox) override 
+	{
+		std::wstring sda(m_sValue.begin(), m_sValue.end());
+		pUserListBox->MessageBox(sda.c_str(), nullptr, MB_OK);
 	}
 };

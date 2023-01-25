@@ -6,20 +6,20 @@
 
 #include <map>
 
-class CPersonListViewModel : public IUpdateObserver<CPersonListUiState>
+class CPersonListViewModel : public IUpdateObserver<IPersonListUiState>
 {
 	IPersonListRepository* m_IPersonListRepository {nullptr};
-	IObservable<CPersonListUiState>* m_pObsUiState{nullptr};
+	IObservable<IPersonListUiState>* m_pObsUiState{nullptr};
 
-	CPersonListUiState m_uiCurrState;
-	void PushCurrStateToUI();
+	CPersonListUiStateMain m_uiCurrState;
+	void PushMainStateToUI();
 
 public:
 	CPersonListViewModel(IPersonListRepository* i_IPersonListRepository);
 
 	~CPersonListViewModel();
 
-	void UpdateObserver(std::function<void(CPersonListUiState)> m_obsName) override;
+	void UpdateObserver(std::function<void(IPersonListUiState*)> m_obsName) override;
 
 	void UpdateUser(CPerson objPerson);
 	void SaveUser(CPerson objPerson);

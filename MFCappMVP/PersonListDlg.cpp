@@ -38,9 +38,9 @@ BOOL CPersonListDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	auto uiStateUpdater = [this](CPersonListUiState newUiState)
+	auto uiStateUpdater = [this](IPersonListUiState* newUiState)
 	{
-		newUiState.Apply(&m_UserListBox, &m_NameEditBox, &m_AgeEditBox, &m_AddressEditBox);
+		newUiState->Apply(&m_UserListBox, &m_NameEditBox, &m_AgeEditBox, &m_AddressEditBox);
 	};
 
 	m_pPersonListViewModel->UpdateObserver(uiStateUpdater);
