@@ -22,7 +22,7 @@ void CPersonListViewModel::UpdateUser(CPerson objPerson)
 	m_IPersonListRepository->UpdateUser(objPerson);
 
 	auto allUsers = m_IPersonListRepository->GetAllUsers();
-	m_uiCurrState.SetPersonList(allUsers);
+	m_uiCurrState.SetMapPersonsList(allUsers);
 	PushMainStateToUI();
 }
 
@@ -31,7 +31,7 @@ void CPersonListViewModel::SaveUser(CPerson objPerson)
 	if (m_IPersonListRepository->SaveUser(objPerson))
 	{
 		auto allUsers = m_IPersonListRepository->GetAllUsers();
-		m_uiCurrState.SetPersonList(allUsers);
+		m_uiCurrState.SetMapPersonsList(allUsers);
 		PushMainStateToUI();
 		return;
 	}

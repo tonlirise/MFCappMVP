@@ -28,27 +28,18 @@ class CPersonListUiStateMain : public IPersonListUiState
 
 public:
 	CPersonListUiStateMain() = default;
-		
+	
+#define SETTER(name) \
+void Set##name##(const decltype(m_ptr##name##)::element_type &val){ \
+m_ptr##name## = std::make_shared<decltype(m_ptr##name##)::element_type>(val);\
+}; 
 
-	void SetPersonList(const std::map<long, CPerson>& mapPersonsList)
-	{
-		m_ptrMapPersonsList = std::make_shared<std::map<long, CPerson>>(mapPersonsList);
-	}
+	SETTER(MapPersonsList);
+	SETTER(Name);
+	SETTER(Age);
+	SETTER(Address);
 
-	void SetName(const std::string& sName)
-	{
-		m_ptrName = std::make_shared<std::string>(sName);
-	}
-
-	void SetAge(const long& nAge)
-	{
-		m_ptrAge = std::make_shared<long>(nAge);
-	}
-
-	void SetAddress(const std::string& sAddress)
-	{
-		m_ptrAddress = std::make_shared<std::string>(sAddress);
-	}
+#undef SETTER
 
 	virtual void Apply(CListBox* pUserListBox,
 		CEdit* pNameEditBox,
